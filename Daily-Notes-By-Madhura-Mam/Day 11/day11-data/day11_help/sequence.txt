@@ -1,0 +1,67 @@
+0. JUnit Testing 
+1. Revise uni dir one to one association with shared PK
+
+eg : Employee 1<-----1 Address association mapping
+Desc : Uni dir one to one mapping between Emp n Address (USING Shared PK approach)
+
+Which fields / annotations in Employee POJO ?
+NONE
+
+
+Which fields / annotations in Address POJO ?
+
+public class Address extends BaseEntity {
+......
+@OneToOne
+@MapsId //shared PK + FK --> PK of emps table !
+@JoinColumn(name="employee_id")
+private Employee emp;
+add s/g 
+}
+
+
+
+
+2. Employee ------ Project association mapping
+Ref : readme
+
+
+3. Uni dir association : many-one only
+(Project Tip : Instead of configuring bi dir one-many n many-one , if you don't need bi dir data navigation or cascading , choose simpler configuration : uni dir association)
+Ref : day10.2 
+Test it thoroughly !
+
+
+
+4. Enter Value types
+
+Till Now , we were looking at association(HAS-A) relationship between multiple entities.
+Entities have a standalone existence(typically a separate table) , it's own PK.
+It's life cycle(transient, persistent,detached,removed) is independent of any other entity
+
+So this represents : weak association (aggregation)
+
+Can there be a strong association between hibernate managed POJOs ? YES
+
+eg : 
+
+Employee HAS-A Adhar Card : demo of entity n value type (composite value type)
+
+Employee HAS-A PaymentCard (can have multiple credit/debit cards) : Collection of embeddable
+
+Employee HAS-A Skill : string (can have multiple skills eg : java,python,react...)
+: collection of basic value type
+
+
+Adhar Card : embeddable : @Embeddable
+field : cardNo , date , loc
+
+
+(collection of basic types)
+Annotations : @ElementCollection n @CollectionTable
+
+
+5. Enter Spring
+
+
+
