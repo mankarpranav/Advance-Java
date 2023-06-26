@@ -1,0 +1,146 @@
+Today's topics
+Hybrid approach (lesser xml + majority annotations)
+Java config class + annotations
+Spring MVC
+Spring MVC n Hibernate integration
+
+
+Revise 
+1. Spring Beans life cycle
+2. Discuss different ways of D.I(modes of wiring)
+
+
+Enter annotations based configuration
+Java config based instructions (no xml) 
+Enter MVC : A design pattern
+Spring MVC
+
+What are 3 different ways of supplying metadata instrs to SC
+1. pure xml (legacy!)
+2. Hybrid approach (lesser xml + majority annotations)
+3. Java config class + annotations
+
+
+1.Pure XML based approach(legacy)
+<bean> tag attributes
+id : unique bean id
+class : F.Q bean class name
+scope : 
+Java SE : singleton | prototype
+def scope : singleton
+prototype : => SC creates a separate  instance of the bean : as per demand i.e getBean)
+lazy-init : def value =false (applicable to ONLY singleton beans)
+
+init-method : name of custom init method
+pattern : public void anyName() throws Exc {....}
+Will be invoked for singleton as well as prototype beans
+
+destroy-method : name of custom destroy  method : SC invokes it just before GC
+pattern : public void anyName() throws Exc {....}
+Will be invoked only for  singleton beans
+
+factory-method : to supply the name of the factory method , in factory method based DI
+
+autowire=no(default)|byName|byType|constructor
+
+
+SC API (refer to a diagram)
+API 
+How to get ready to use spring beans from SC ?
+API of BeanFactory
+public <T> T getBean(String beanId,Class<T> beanClass) throws BeansException
+T : type of the spring bean 
+
+Understand Spring bean life cycle (refer to a diagram)
+
+Different Modes of Wiring (D.I.) : (refer to a diagram)
+
+
+2. Hybrid Approach (reduced XML , reduced Java code  n majority annotations)
+(refer to readme : "spring sequence for annotations")
+
+eg : UserController : dependency : UserService : i/f  , (UserServiceImpl) : impl class
+
+@AutoWired //=> autowire=byType
+private UserService myUserService;
+What if : SC comes across multiple matches : SC throws : NoUniqueBeanDefinitionException
+What if : SC doesn't find even a single match : SC throws NoSuchBeanDefFoundExc
+
+
+eg : UserController : dependency : UserService : i/f  , (UserServiceImpl) : impl class
+@AutoWired (required=false) //=> autowire=byType
+private UserService myUserService;
+What if : SC comes across multiple matches : SC throws : NOUnqBeandefexc
+What if : SC doesn't find even a single match : SC DOES NOT throw NOBeandefFoundExc
+Business logic failure : NPExc
+
+
+
+eg : UserController : dependency : UserService : i/f  , (UserServiceImpl) : impl class
+@AutoWired 
+@Qualifier("abc") //=> autowire=byName
+private UserService myUserService;
+What if : SC comes across exactly 1 match : D.I succeeds !
+What if : SC comes across multiple matches : SC throws : NoUniqueBeanDefException
+What if : SC doesn't find even a single match : SC DOES NOT throw NOBeandefFoundExc
+
+OR
+
+@Resource(name="abc") //=> autowire=byName (Java EE annotation)
+private UserService myUserService;
+
+
+
+3. Modern way of supplying meta data instructions to SC 
+Java Config class/es + annotations
+3.1 How to tell SC , following class containg java config 
+@Configuration : class level mandatory annotation (It will auto enable anno support)
+(equivalent to context:annotation-config)
+
+3.2 <context:component-scan.../>
+@ComponentScan(String[] basePkgNames)
+
+3.3 To configure Java objects as spring beans --one way is supplying annos : eg --@Component,@Controller,@Service.....
+OR
+@Bean =><bean id ,class ...../>
+
+3.4 Instead of starting xml based SC , use 
+BeanFactory <---- ApplicationContext <---- AnnotationConfigApplicationContext ,
+ to boot SC using java config class + annotations
+
+-----------------------
+
+What is MVC ?
+Model-View-Controller --Standard design pattern , meant for separation of concerns(=tasks=responsibilities)
+
+Model -- Java Bean (conversational state holder + B.L supplier) & POJOs
+
+View layer --JSP , Thymeleaf/velocity/Angular/React/Vue
+Represents UI / presentation logic  (processing requests & generating response)
+
+Controller -- Typically a servlet(used in Spring MVC ) or a filter(used in Struts 2 framework)
+Manages navigation & beans.
+
+Front Controller -- A design pattern -- which ensures ANY request coming from ANY client , for this web app , will be intercepted by a common gate keeper(or a centralized dispatcher)
+It will dispatch clnt request to further components , based upon nature of the req.
+
+MVC flow (without spring)
+
+refer : MVC diagrams , MVC Details
+mvc-overview.png
+
+ 
+Implementation using servlet / JSP & JavaBean  --Shared as a readymade demo.
+Refer to : eclipse projects\mvc_hibernate_demo
+Flow  diagram : mvc-flow.png
+
+Enter Spring MVC
+(Refer : "day13-data\day13_help\Spring MVC\steps for spring mvc.txt")
+
+Objectives
+1. Test Spring MVC Flow
+2. Deliver/render the index.jsp from SC (using spring MVC architecture)
+3. Test Model n View
+4. Test MOdel Map
+5. Enter Case study (EMS)
+
