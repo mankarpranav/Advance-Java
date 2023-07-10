@@ -6,11 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.app.entities.Product;
-import java.lang.String;
-import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-	Optional<Product> findByPnameAndQty(String pname, int qty);
+    // Custom query method to find a product by its name and quantity
+    Optional<Product> findByPnameAndQty(String pname, int qty);
 }
