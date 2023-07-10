@@ -22,65 +22,48 @@ public class ProductController {
 	@Autowired
 	private ProductServiceImpl pser;
 
+	// Constructor
 	public ProductController() {
 		// TODO Auto-generated constructor stub
 	}
 
+	// API to insert a product
 	@PostMapping("/add")
 	public Product insertProduct(@RequestBody Product p) {
 		return pser.InsertProduct(p);
 	}
 
+	// API to get the list of products
 	@GetMapping("/plist")
-	public List<Product> GetProductList() {
-		return pser.GetProductList();
-
+	public List<Product> getProductList() {
+		return pser.getProductList();
 	}
 
+	// API to delete a product by its id
 	@GetMapping("/delete/{id}")
-	public ResponseDTO DeleteProductById(@PathVariable long id) {
-		return new ResponseDTO(pser.DeleteProductById(id));
+	public ResponseDTO deleteProductById(@PathVariable long id) {
+		return new ResponseDTO(pser.deleteProductById(id));
 	}
 
+	// API to get a product by its id
 	@GetMapping("/update/{id}")
-	public ResponseEntity<?> Getproductbyid(@PathVariable long id) {
-		return new ResponseEntity<>(pser.Getproductbyid(id), HttpStatus.ACCEPTED);
+	public ResponseEntity<?> getProductById(@PathVariable long id) {
+		return new ResponseEntity<>(pser.getProductById(id), HttpStatus.ACCEPTED);
 	}
 
+	// API to update a product
 	@PostMapping("/update/product")
-	public ResponseEntity<?> insertit(@RequestBody Product p) {
-
-		return ResponseEntity.status(HttpStatus.CREATED).body(pser.InsertProduct(p));
+	public ResponseEntity<?> updateProduct(@RequestBody Product p) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(pser.insertProduct(p));
 	}
 
-	@GetMapping("/signin")
-	public ResponseEntity<?> Validateproduct(@RequestBody PnameQtyDTO p) {
+	// API to validate a product
+	@PostMapping("/signin")
+	public ResponseEntity<?> validateProduct(@RequestBody PnameQtyDTO p) {
 		try {
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(pser.validate(p));
 		} catch (RuntimeException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDTO(e.getMessage()));
-
 		}
-
 	}
-
-//	@GetMapping("/update")
-//	public Product UpdateProduct(@RequestBody Product p) {
-//		return pser.UpdateProduct(p);
-//	}
-
-//	@PostMapping("/delete")
-//	public void DeleteProduct(@RequestBody Product p) {
-//		pser.DeleteProduct(p);
-//	}
-
-//	@GetMapping("/update/{id}")
-//	public Product UpdateProductById(@PathVariable Long id) {
-//		return pser.UpdateProductById(id);
-//	}
-
-//	@GetMapping("/delete/{id}")
-//	public void DeleteProductById(@PathVariable long id) {
-//		pser.DeleteProductById(id);
-//	}
 }
