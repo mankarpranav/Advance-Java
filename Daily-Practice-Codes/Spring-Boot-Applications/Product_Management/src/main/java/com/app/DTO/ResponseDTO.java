@@ -10,11 +10,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ResponseDTO {
-	private String msg;
-	private LocalDateTime dt;
+    private String msg; // Represents the response message
+    private LocalDateTime dt; // Represents the date and time of the response
 
-	public ResponseDTO(String msg) {
-		this.msg = msg;
-		this.dt = LocalDateTime.now();
-	}
+    public ResponseDTO(String msg) {
+        this.msg = msg;
+        this.dt = LocalDateTime.now();
+    }
 }
