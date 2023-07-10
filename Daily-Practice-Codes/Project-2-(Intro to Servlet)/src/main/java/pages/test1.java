@@ -10,26 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/page")
-public class test1 extends HttpServlet {
+public class Test1Servlet extends HttpServlet {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html");
-		try(PrintWriter pw = resp.getWriter()){
-			pw.print("Here we come!");
-		}
-	}
+    // This method is called when a GET request is made to the specified URL ("/page").
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Set the response content type to HTML.
+        resp.setContentType("text/html");
+        
+        try (PrintWriter pw = resp.getWriter()) {
+            // Send the response containing the message to the client.
+            pw.print("Here we come!");
+        }
+    }
 
-	@Override
-	public void destroy() {
-		System.out.println("in destroy method of "+getClass());
-	}
+    // This method is called when the servlet is being destroyed.
+    @Override
+    public void destroy() {
+        System.out.println("In destroy method of " + getClass());
+    }
 
-	@Override
-	public void init() throws ServletException {
-		System.out.println("in init method of "+getClass());
-	}
-	
-	
-	
+    // This method is called when the servlet is being initialized.
+    @Override
+    public void init() throws ServletException {
+        System.out.println("In init method of " + getClass());
+    }
 }
