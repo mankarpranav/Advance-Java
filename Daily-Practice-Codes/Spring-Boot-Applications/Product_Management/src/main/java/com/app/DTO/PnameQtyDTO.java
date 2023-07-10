@@ -10,8 +10,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class PnameQtyDTO {
-	@NotBlank(message = "pname not be blank")	
-	private String pname;
-	@NotBlank(message = "Qty not be blank")
-	private int qty;
+    @NotBlank(message = "pname must not be blank")
+    private String pname; // Represents the product name
+    
+    @NotBlank(message = "Qty must not be blank")
+    private int qty; // Represents the quantity of the product
 }
