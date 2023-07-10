@@ -10,25 +10,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/xyz")
-public class test extends HttpServlet {
+public class TestServlet extends HttpServlet {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Current Thread: "+Thread.currentThread());
-		resp.setContentType("text/html");
-		
-		try(PrintWriter pw=resp.getWriter()){
-			pw.print("<h1>Hello! To The World of J2EE!</h1>");
-		}
-	}
+    // This method is called when a GET request is made to the specified URL ("/xyz").
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // Print the current thread information to the console.
+        System.out.println("Current Thread: " + Thread.currentThread());
 
-	@Override
-	public void destroy() {
-		System.out.println("in destroy... "+getClass());
-	}
+        // Set the response content type to HTML.
+        resp.setContentType("text/html");
 
-	@Override
-	public void init() throws ServletException {
-		System.out.println("in init... "+getClass());
-	}
+        try (PrintWriter pw = resp.getWriter()) {
+            // Send the HTML response containing a heading to the client.
+            pw.print("<h1>Hello! Welcome to the World of J2EE!</h1>");
+        }
+    }
+
+    // This method is called when the servlet is being destroyed.
+    @Override
+    public void destroy() {
+        System.out.println("In destroy... " + getClass());
+    }
+
+    // This method is called when the servlet is being initialized.
+    @Override
+    public void init() throws ServletException {
+        System.out.println("In init... " + getClass());
+    }
 }
