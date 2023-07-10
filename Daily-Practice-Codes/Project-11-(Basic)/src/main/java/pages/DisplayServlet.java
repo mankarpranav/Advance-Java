@@ -12,30 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DisplayServlet")
 public class DisplayServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public void init(ServletConfig config) throws ServletException {
-		System.out.println("in init method");
-	}
+    // This method is called when the servlet is being initialized.
+    public void init(ServletConfig config) throws ServletException {
+        System.out.println("In init method");
+    }
 
-	public void destroy() {
-		System.out.println("in destroy method..");
-	}
+    // This method is called when the servlet is being destroyed.
+    public void destroy() {
+        System.out.println("In destroy method..");
+    }
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
-		String dob = request.getParameter("DOB");
-		String moto = request.getParameter("moto");
-		int mobno= Integer.parseInt(request.getParameter("mobileno"));
-		
-		out.print("First Name of User: "+fname
-				+"\nLast Name of User: "+lname
-				+"\nDate of Birth: "+dob
-				+"\nMOTO: "+moto
-				+"\nMobile No:"+ mobno);
-	}
+    // This method is called when a GET request is made to the specified URL ("/DisplayServlet").
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
 
+        // Retrieve the parameter values from the request.
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String dob = request.getParameter("DOB");
+        String moto = request.getParameter("moto");
+        int mobno = Integer.parseInt(request.getParameter("mobileno"));
+
+        // Print the retrieved values to the response.
+        out.print("First Name of User: " + fname
+                + "\nLast Name of User: " + lname
+                + "\nDate of Birth: " + dob
+                + "\nMOTO: " + moto
+                + "\nMobile No: " + mobno);
+    }
 }
