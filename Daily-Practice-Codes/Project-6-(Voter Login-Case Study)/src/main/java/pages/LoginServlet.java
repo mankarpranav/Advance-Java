@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.UserDaoImpl;
 import pojos.User;
 
-
 @WebServlet(value = "/login", loadOnStartup = 1)
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -71,11 +70,7 @@ public class LoginServlet extends HttpServlet {
 				//add the cookie to resp header
 				//Method of HttpServletResp : public void addCookie(Cookie c)
 				
-				response.addCookie(c1);
-				
-				
-				
-				
+				response.addCookie(c1);		
 				pw.print("<h4> Validated User details " + user + "</h4>");
 				
 		//		pw.flush();//sending the resp (commiting the resp)
