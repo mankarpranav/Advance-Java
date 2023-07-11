@@ -1,5 +1,4 @@
 package pojos;
-// id | first_name | last_name | email             | password | dob        | status | role  |
 
 import java.sql.Date;
 
@@ -14,14 +13,12 @@ public class User {
 	private String role;
 
 	public User() {
-		// TODO Auto-generated constructor stub
+		// Default constructor
 	}
-
-	
 
 	public User(int id, String firstName, String lastName, String email, String password, Date dob,
 			boolean votingStatus, String role) {
-		super();
+		// Parameterized constructor to initialize user object with attributes
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -32,7 +29,7 @@ public class User {
 		this.role = role;
 	}
 
-
+	// Getters and setters for accessing and modifying the user attributes
 
 	public int getId() {
 		return id;
@@ -100,9 +97,8 @@ public class User {
 
 	@Override
 	public String toString() {
+		// Override the toString() method to provide a string representation of the user object
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", dob="
 				+ dob + ", votingStatus=" + votingStatus + ", role=" + role + "]";
 	}
-	
-	
 }
