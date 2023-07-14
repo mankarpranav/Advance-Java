@@ -3,5 +3,6 @@ package dao;
 import pojos.Employee;
 
 public interface EmployeeDao {
-	void insertEmployee(Employee emp);
+    // Inserts an employee into the database.
+    void insertEmployee(Employee emp);
 }
