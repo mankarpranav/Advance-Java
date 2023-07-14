@@ -1,5 +1,7 @@
 package pojos;
 
 public enum EmployeeType {
-	FULLTIME,PARTTIME,INTERN;
+    FULLTIME,
+    PARTTIME,
+    INTERN;
 }
