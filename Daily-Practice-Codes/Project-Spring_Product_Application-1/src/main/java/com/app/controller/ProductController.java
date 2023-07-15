@@ -15,18 +15,16 @@ import com.example.pojos.Product;
 @RequestMapping("/products")
 @CrossOrigin(origins = "http://localhost:8080")
 public class ProductController {
-	@Autowired
-	private ProductService prodService;
+    @Autowired
+    private ProductService prodService;
 
-	public ProductController() {
-		System.out.println("In product Cntroller ctr");
-	}
+    public ProductController() {
+        System.out.println("In ProductController constructor");
+    }
 
-	@GetMapping
-	public List<Product> getAllProduct() {
-		System.out.println("in controller method");
-		return prodService.listofProducts();
-
-	}
-
+    @GetMapping
+    public List<Product> getAllProducts() {
+        System.out.println("Inside getAllProducts method");
+        return prodService.listOfProducts();
+    }
 }
