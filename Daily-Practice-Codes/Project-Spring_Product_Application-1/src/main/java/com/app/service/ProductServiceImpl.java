@@ -12,13 +12,12 @@ import com.example.pojos.Product;
 @Service
 @Transactional
 public class ProductServiceImpl implements ProductService {
-	@Autowired
-	private ProductDao prodDao;
+    @Autowired
+    private ProductDao prodDao;
 
-	@Override
-	public List<Product> listofProducts() {
-		System.out.println("In service method");
-		return prodDao.findAll();
-	}
-
+    @Override
+    public List<Product> listOfProducts() {
+        System.out.println("Inside service method");
+        return prodDao.findAll();
+    }
 }
