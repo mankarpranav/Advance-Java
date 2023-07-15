@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> Sorry ${requestScope.Student1.firstName} ${requestScope.Student1.lastName} ,You Not Selected For Course ${requestScope.Student1.selectedCourse}</h1>
+<h1>Sorry ${requestScope.Student1.firstName} ${requestScope.Student1.lastName}, You were not selected for the course ${requestScope.Student1.selectedCourse}</h1>
 </body>
 </html>
