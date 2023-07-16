@@ -3,54 +3,53 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component(value="abc")
+@Component(value = "abc")
 public class Student {
 
-	private String name;
-	private int id;
-	
-	//creating reference of dependency
-	@Autowired
-	private Laptop laptop;
+    private String name;
+    private int id;
 
-	public String getName() {
-		return name;
-	}
+    // Creating reference of dependency
+    @Autowired
+    private Laptop laptop;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public Laptop getLaptop() {
-		return laptop;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setLaptop(Laptop laptop) {
-		this.laptop = laptop;
-	}
+    public Laptop getLaptop() {
+        return laptop;
+    }
 
-	public Student(String name, int id, Laptop laptop) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.laptop = laptop;
-	}
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
 
-	public Student() {
-		super();
-	}
-	
-	public void show() {
-		System.out.println("In show method()....");
-		laptop.compile();                          //if Not @Autowired will raise NullPointerException	
-	}
+    public Student(String name, int id, Laptop laptop) {
+        super();
+        this.name = name;
+        this.id = id;
+        this.laptop = laptop;
+    }
 
+    public Student() {
+        super();
+    }
+
+    public void show() {
+        System.out.println("In show method()....");
+        laptop.compile(); // If @Autowired is not used, it will raise NullPointerException
+    }
 }
