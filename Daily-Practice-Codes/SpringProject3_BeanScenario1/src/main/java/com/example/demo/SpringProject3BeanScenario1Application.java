@@ -17,8 +17,6 @@ public class SpringProject3BeanScenario1Application {
 }
 
 /**
- * 
- * 
  * . ____ _ __ _ _ /\\ / ___'_ __ _ _(_)_ __ __ _ \ \ \ \ ( ( )\___ | '_ | '_| |
  * '_ \/ _` | \ \ \ \ \\/ ___)| |_)| | | | | || (_| | ) ) ) ) ' |____| .__|_|
  * |_|_| |_\__, | / / / / =========|_|==============|___/=/_/_/_/ [32m ::
@@ -42,8 +40,6 @@ public class SpringProject3BeanScenario1Application {
  * [35m1924[0;39m [2m---[0;39m [2m[ main][0;39m
  * [36md.SpringProject3BeanScenario1Application[0;39m [2m:[0;39m Started
  * SpringProject3BeanScenario1Application in 1.612 seconds (JVM running for
- * 2.817)
- * 
- * 
+ * 2.817
  * 
  */
