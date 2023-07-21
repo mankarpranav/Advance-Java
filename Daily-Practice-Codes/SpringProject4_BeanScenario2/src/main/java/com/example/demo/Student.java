@@ -2,43 +2,76 @@ package com.example.demo;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Student class represents a student entity.
+ */
 @Component(value = "Student")
 public class Student {
 
-	private int studid;
-	private String name;
+    private int studId;
+    private String name;
 
-	// constructors
-	public Student(int studid, String name) {
-		super();
-		this.studid = studid;
-		this.name = name;
-	}
+    /**
+     * Constructor to create a Student object with provided student ID and name.
+     *
+     * @param studId The ID of the student.
+     * @param name   The name of the student.
+     */
+    public Student(int studId, String name) {
+        super();
+        this.studId = studId;
+        this.name = name;
+    }
 
-	public Student() {
-		super();
-		System.out.println("In constructor of Student");
-	}
+    /**
+     * Default constructor for Student class.
+     */
+    public Student() {
+        super();
+        System.out.println("In constructor of Student");
+    }
 
-	// setters n getters
-	public int getStudid() {
-		return studid;
-	}
+    /**
+     * Get the student ID.
+     *
+     * @return The student ID.
+     */
+    public int getStudId() {
+        return studId;
+    }
 
-	public void setStudid(int studid) {
-		this.studid = studid;
-	}
+    /**
+     * Set the student ID.
+     *
+     * @param studId The student ID to set.
+     */
+    public void setStudId(int studId) {
+        this.studId = studId;
+    }
 
-	public String getName() {
-		return name;
-	}
+    /**
+     * Get the name of the student.
+     *
+     * @return The name of the student.
+     */
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * Set the name of the student.
+     *
+     * @param name The name of the student to set.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void show() {
-		System.out.println("In show method..of student");
-	}
+    /**
+     * Method to show information about the student.
+     */
+    public void show() {
+        System.out.println("In show method of Student");
+    }
 
 }
